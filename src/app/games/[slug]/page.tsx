@@ -15,6 +15,7 @@ interface Platform {
 }
 interface Screenshot{
   image: string;
+  id: string;
 }
 interface Game {
   id: string;
@@ -86,7 +87,7 @@ export default function Page() {
       <p className="text-lg">{game.description_raw || "Descripción no disponible"}</p>
       <div>
      {game.short_screenshots?.map((bg)=>{
-      return(<img src={bg.image}></img>)
+      return(<img key={bg.id} src={bg.image}></img>)
      })}
       </div>
       <div className="mt-4">
